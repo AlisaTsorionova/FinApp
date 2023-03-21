@@ -1,0 +1,127 @@
+.form-auth {
+  width: 430px;
+  height: 375px;
+	font-size: 16px;
+	font-weight: 300;
+  padding: 37px 55px;
+  /* -webkit-transition: opacity .5s ease, -webkit-transform .5s ease; */
+  /* transition: opacity .5s ease, -webkit-transform .5s ease;
+  transition: opacity .5s ease, transform .5s ease;
+  transition: opacity .5s ease, transform .5s ease, -webkit-transform .5s ease; */
+
+  display: flex;
+  flex-direction: column;  
+;
+}
+
+
+.form-auth_label_input {
+  width: 93%;
+  height: 35px;
+	/* padding-left: 15px; */
+	border: none;
+	border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 7px;
+  background:rgba(255,255,255,.2);
+  color: #ffffff;
+  font-size: 13px;
+  padding: 2px 15px;
+  /* padding: 0px;
+  border: 5px rgba(255,255,255,.2) */
+}
+
+.form-auth_label {
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 13px;
+  /* padding-left: 15px; */
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:focus {outline: none;
+}
+
+body {
+  background:
+    -webkit-linear-gradient(
+    rgba(246,247,249,0.65),
+    rgba(246,247,249,0.65)),
+    url(https://img5.goodfon.ru/wallpaper/nbig/7/10/les-doroga-luchi-solntsa.jpg) no-repeat center center fixed;
+  /* background:
+    linear-gradient(
+    rgba(246,247,249,0.8),
+    rgba(246,247,249,0.8)),
+    url(https://img5.goodfon.ru/wallpaper/nbig/7/10/les-doroga-luchi-solntsa.jpg) no-repeat center center fixed;
+  background-size: cover; */
+}
+
+.frame {
+  height: 575px;
+  width: 430px;
+  /* background:
+    -webkit-linear-gradient(
+    rgba(35,43,85,0.75),
+    rgba(35,43,85,0.95)); */
+    /* url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center; */
+  background:
+    linear-gradient(
+    rgba(47, 85, 35, 0.75),
+    rgba(23, 43, 17, 0.75));
+    /* url(https://dl.dropboxusercontent.com/u/22006283/preview/codepen/clouds-cloudy-forest-mountain.jpg) no-repeat center center; */
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-top: solid 1px rgba(255,255,255,.5);
+  border-radius: 5px;
+  box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+  overflow: hidden;
+  -webkit-transition: all .5s ease;
+  transition: all .5s ease;
+
+  
+}
+
+.form-auth_button{
+  float: left;
+  width: 100%;
+  height: 35px;
+	border: none;
+	border-radius: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  text-align: center;
+  background-color: #cfe2cfc4;
+  /* padding: 1px 2px; */
+  font-family: Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  color: #0a2b0ac4;
+}
+
+.form-auth_button:hover {
+  cursor: pointer; 
+  background-color: #2a3128b0;
+  color: #cfe2cfc4;
+  transition: all .5s; 
+}
+.form-auth_button:not(:hover) {
+  cursor: pointer; 
+  background-color: #cfe2cfc4;
+  color: #0a2b0ac4;
+  transition: all .5s;
+}
+
+
+.form-auth_header{
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 25px;
+  padding-bottom: 10px;
+  color: rgba(255,255,255,.7);
+  font-family: Arial, Helvetica, sans-serif;
+  /* display: block; */
+}
