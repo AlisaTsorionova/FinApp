@@ -32,4 +32,8 @@ export const checkAuth = () => (dispatch) => {
     .catch(() => console.log('no user'));
 };
 
+export const logoutUser = () => (dispatch) => {
+  axios.get('/user/logout');
+};
+
 export default userSlice.reducer;

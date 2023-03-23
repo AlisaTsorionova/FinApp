@@ -9,7 +9,6 @@ import './Styles/General.css';
 
 export default function CatExpenses({ isModal, setModal, currExp }) {
   const user = useSelector((store) => store.user);
-  // console.log(user, '///////////////////////////////////////');
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,7 +20,6 @@ export default function CatExpenses({ isModal, setModal, currExp }) {
   return (
     <div className={isModal ? 'modal active' : 'modal'} onClick={() => setModal(false)}>
       <div className={isModal ? 'modal_content active' : 'modal_content'} onClick={(e) => e.stopPropagation}>
-        {/* <button type="button" onClick={() => navigate('/datacard')} className="arrow" /> */}
         {currExp.title}
         {currExp.sum}
         {' '}

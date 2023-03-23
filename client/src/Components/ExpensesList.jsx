@@ -1,25 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getExpenses } from '../Redux/Slices/expenseSlice';
 import CatExpenses from './CatExpenses';
 
 export default function expensesList() {
   const expenses = useSelector((store) => store.expenses);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { category } = useParams();
   // const filtExp = expenses.filter((el) => el?.Category.title === category);
   const [isModal, setModal] = useState(false);
   const [currExp, setCurrExp] = useState({});
   // фильтровать на фронте или на беке?
-  // console.log(filtExp, '--------------------');
-  // useEffect(() => {
-  //   dispatch(getExpenses());
-  // }, []);
 
   useEffect(() => {
     dispatch(getExpenses());
-    console.log(expenses, 'expenses');
+    if (isModal === false && !expenses.filter((el) => el?.Category.title === category).length) navigate('/datacard'); // *
   }, [isModal]);
 
   // сюда компонент диаграммы, передать фильтрованное значение

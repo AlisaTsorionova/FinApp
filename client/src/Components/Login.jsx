@@ -20,6 +20,7 @@ export default function Login() {
       console.log(user);
       navigate('/');
     }
+    console.log(user, '))))))))))))))))');
   }, [user]);
 
   return (

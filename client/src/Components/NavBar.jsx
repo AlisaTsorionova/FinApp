@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { checkAuth } from '../Redux/Slices/userSlice';
+import { checkAuth, logoutUser, setUser } from '../Redux/Slices/userSlice';
 
 export default function NavBar() {
   const dispatch = useDispatch();
@@ -23,6 +23,19 @@ export default function NavBar() {
       </NavLink>
       <NavLink className="navlink" to="/login">
         <button className="navlink-button" type="button">Login</button>
+      </NavLink>
+      <NavLink className="navlink" to="/">
+        <button
+          onClick={() => {
+            dispatch(logoutUser());
+            dispatch(setUser({}));
+          }}
+          className="navlink-button"
+          type="button"
+        >
+          Logout
+
+        </button>
       </NavLink>
     </nav>
   );
