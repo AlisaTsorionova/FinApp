@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/all', async (req, res) => {
   try {
     const allCategories = await Category.findAll({ include: [{ model: Expense }] });
-    console.log(allCategories, '00000000000000000');
+    // console.log(allCategories, '00000000000000000');
     res.json(allCategories);
   } catch (err) {
     console.log(err, 'hi');

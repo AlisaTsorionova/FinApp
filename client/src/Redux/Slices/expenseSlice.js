@@ -22,8 +22,8 @@ export const getExpenses = () => (dispatch) => {
     .catch((err) => console.log(err, 'no expenses found'));
 };
 
-export const addNewExpense = (expenceData) => (dispatch) => {
-  axios.post('/expenses/add', expenceData)
+export const addNewExpense = (expenseData) => (dispatch) => {
+  axios.post('/expenses/add', expenseData)
     .then((res) => dispatch(addExpense(res.data)))
     .catch((err) => console.log(err, 'no adding'));
 };

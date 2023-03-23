@@ -13,7 +13,7 @@ function formatDate(str) {
 }
 
 router.get('/list', async (req, res) => {
-  console.log('eeeexpeeeenseeeee');
+  // console.log('eeeexpeeeenseeeee');
   try {
     const expensesList = await Expense.findAll({ include: [{ model: Category }] });
     res.json(expensesList);
@@ -28,7 +28,7 @@ router.post('/add', async (req, res) => {
       title, sum, date, description, category_id,
     } = req.body;
     const fullDate = formatDate(date);
-    console.log(date, req.body, '------------------------');
+    // console.log(date, req.body, '------------------------');
     const newExpense = await Expense.create({
       title,
       sum: +sum,
@@ -49,7 +49,7 @@ router.post('/add', async (req, res) => {
 router.post('/delete/:id', async (req, res) => {
   const { userId } = req.body;
   const { id } = req.params;
-  console.log(req.body, req.session.user.id, '99999999');
+  // console.log(req.body, req.session.user.id, '99999999');
   try {
     if (userId === req.session.user.id) {
       await Expense.destroy({ where: { id } });

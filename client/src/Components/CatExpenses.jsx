@@ -21,7 +21,7 @@ export default function CatExpenses({ isModal, setModal, currExp }) {
   return (
     <div className={isModal ? 'modal active' : 'modal'} onClick={() => setModal(false)}>
       <div className={isModal ? 'modal_content active' : 'modal_content'} onClick={(e) => e.stopPropagation}>
-        <button type="button" onClick={() => navigate('/datacard')} className="arrow" />
+        {/* <button type="button" onClick={() => navigate('/datacard')} className="arrow" /> */}
         {currExp.title}
         {currExp.sum}
         {' '}
