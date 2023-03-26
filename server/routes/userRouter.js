@@ -64,7 +64,6 @@ router.post('/login', async (req, res) => {
 //       req.session.user = {
 //         id: user.id, name: user.name, email: user.email,
 //       };
-//       console.log(req.session.user, '0000000000000000');
 //       res.json(req.session.user);
 //     } else {
 //       res .json({ message: 'Неверно введён логин или пароль пользователя' });

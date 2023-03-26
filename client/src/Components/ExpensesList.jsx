@@ -9,7 +9,6 @@ export default function expensesList() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { category } = useParams();
-  // const filtExp = expenses.filter((el) => el?.Category.title === category);
   const [isModal, setModal] = useState(false);
   const [currExp, setCurrExp] = useState({});
   // фильтровать на фронте или на беке?

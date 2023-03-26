@@ -33,7 +33,8 @@ export const checkAuth = () => (dispatch) => {
 };
 
 export const logoutUser = () => (dispatch) => {
-  axios.get('/user/logout');
+  axios.get('/user/logout')
+    .then(() => dispatch(setUser({})));
 };
 
 export default userSlice.reducer;

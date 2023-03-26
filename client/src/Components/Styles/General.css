@@ -1,8 +1,30 @@
+html, body {
+  height: 100%;
+}
+
 .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
   transform: rotate(135deg);
-  /* -webkit-transform: rotate(135deg); */
 }
+
+body {
+  margin: 0px;
+	background: linear-gradient(90deg, #1f402a,#4481b3, #B0DAB9);
+	background-size: 700% 10000%;
+	animation: gradient 70s ease infinite;
+}
+@keyframes gradient {
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
+

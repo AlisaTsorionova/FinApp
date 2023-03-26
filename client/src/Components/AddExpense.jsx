@@ -62,9 +62,7 @@ export default function addExpense() {
         name="description"
       />
       <button type="submit">
-        {/* <NavLink to="/datacard"> */}
         SUBMIT
-        {/* </NavLink> */}
       </button>
     </form>
 
