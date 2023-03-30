@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCategory } from '../Redux/Slices/categorySlice';
+import Chart from './Chart';
 
 export default function dataCard() {
   const categories = useSelector((store) => store.category);
@@ -16,6 +17,7 @@ export default function dataCard() {
 
   return (
     <article>
+      <Chart />
       {currCategories.map((el) => <button onClick={() => navigate(`/list/${el.title}`)} type="button" key={el.id}>{el.title}</button>)}
     </article>
   );

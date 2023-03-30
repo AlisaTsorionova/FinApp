@@ -7,11 +7,22 @@ const router = express.Router();
 router.get('/all', async (req, res) => {
   try {
     const allCategories = await Category.findAll({ include: [{ model: Expense }] });
-    // console.log(allCategories, '00000000000000000');
     res.json(allCategories);
   } catch (err) {
     console.log(err, 'hi');
   }
-}); // сделатьтонрмальный трай кэтч
+});
+
+router.get('/chart', async (req, res) => {
+  try {
+    const allCategories = await Category.findAll({ include: [{ model: Expense }] });
+    const filtCat = allCategories.filter((el) => el.Expenses.length);
+    const chartData = {};
+    filtCat.forEach((x) => chartData[x.title] = (x.Expenses.map((a) => a.sum)).reduce((a,b)=>a+b));
+    res.json(chartData);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;

@@ -9,7 +9,7 @@ const categorySlice = createSlice({
   },
 });
 
-export const { setCategory } = categorySlice.actions; // ??
+export const { setCategory } = categorySlice.actions;
 
 export const getCategory = () => (dispatch) => {
   axios('/categories/all')
