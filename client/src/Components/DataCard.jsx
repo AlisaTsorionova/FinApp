@@ -1,24 +1,28 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCategory } from '../Redux/Slices/categorySlice';
 import Chart from './Chart';
+import './Styles/DataCard.css';
+import { getCategoryChart } from '../Redux/Slices/chartSlice';
 
 export default function dataCard() {
-  const categories = useSelector((store) => store.category);
+  const chartData = useSelector((store) => store.chart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const currCategories = categories.filter((el) => el.Expenses.length);
-  console.log(categories);
+  const chartDataArr = Object.entries(chartData)
+    .sort(([, a], [, b]) => b - a)
+    .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
   useEffect(() => {
-    dispatch(getCategory());
-  }, []);// если параллельно с окном добавления, вставть в массив зависимостей изменение
+    dispatch(getCategoryChart());
+  }, []);
 
   return (
-    <article>
-      <Chart />
-      {currCategories.map((el) => <button onClick={() => navigate(`/list/${el.title}`)} type="button" key={el.id}>{el.title}</button>)}
-    </article>
+    <div className="datacard">
+      <Chart chartData={chartData} />
+      <ul className="datacard_buttons_list">
+        {Object.keys(chartDataArr).map((el) => <li><button className="datacard_buttons_list_item" onClick={() => navigate(`/list/${el}`)} type="button" key={el}>{el.toUpperCase()}</button></li>)}
+      </ul>
+    </div>
   );
 }

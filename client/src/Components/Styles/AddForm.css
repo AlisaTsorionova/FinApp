@@ -1,4 +1,4 @@
-.form-auth {
+.add-form{
   width: 430px;
   height: 375px;
 	font-size: 16px;
@@ -6,11 +6,20 @@
   padding: 37px 55px;
   display: flex;
   flex-direction: column;  
-;
 }
 
+.frame{
+  height: 100%;
+  width: 430px;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin: 10px auto;
+  overflow: hidden;
+  -webkit-transition: all .5s ease;
+  border: none;
+  border-radius: 10px;
+}
 
-.form-auth_label_input {
+.add-form_label_input{
   width: 93%;
   height: 35px;
 	border: none;
@@ -23,32 +32,7 @@
   padding: 2px 15px;
 }
 
-.form-auth_label {
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 13px;
-  padding-bottom: 10px;
-  color: rgba(255,255,255,.7);
-  display: block;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-:focus {outline: none;
-}
-
-
-.frame {
-  height: 100%;
-  width: 430px;
-  background-color: rgba(0, 0, 0, 0.5);
-  margin: 10px auto;
-  overflow: hidden;
-  -webkit-transition: all .5s ease;
-  border: none;
-  border-radius: 10px;
-}
-
-.form-auth_button{
+.add-form_button{
   float: left;
   width: 100%;
   height: 35px;
@@ -65,26 +49,15 @@
   color: #0a2b0ac4;
 }
 
-.form-auth_button:hover {
+.add-form_button:hover {
   cursor: pointer; 
   background-color: #2a3128b0;
   color: #cfe2cfc4;
   transition: all .5s; 
 }
-.form-auth_button:not(:hover) {
+.add-form_button:not(:hover) {
   cursor: pointer; 
   background-color: #cfe2cfc4;
   color: #0a2b0ac4;
   transition: all .5s;
-}
-
-
-.form-auth_header{
-  font-weight: 400;
-  text-transform: uppercase;
-  font-size: 25px;
-  margin-top: 0px;
-  padding-bottom: 10px;
-  color: rgba(255,255,255,.7);
-  font-family: Arial, Helvetica, sans-serif;
 }

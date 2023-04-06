@@ -7,8 +7,8 @@ import AddExpense from './Components/AddExpense';
 import NavBar from './Components/NavBar';
 import ExpensesList from './Components/ExpensesList';
 import DataCard from './Components/DataCard';
-import Main from './Components/Main';
-import Test from './Components/test';
+// import Main from './Components/Main';
+// import Test from './Components/test';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
         <Route path="/add" element={<AddExpense />} />
         <Route path="/list/:category" element={<ExpensesList />} />
         <Route path="/datacard" element={<DataCard />} />
-        <Route path="/test" element={<Test />} />
+        {/* <Route path="/test" element={<Test />} /> */}
       </Routes>
     </>
   );

@@ -13,7 +13,9 @@ export const { setCategoryChart } = chartSlice.actions;
 
 export const getCategoryChart = () => (dispatch) => {
   axios('/categories/chart')
-    .then((res) => dispatch(setCategoryChart(res.data)))
+    .then((res) => {
+      dispatch(setCategoryChart(res.data));
+    })
     .catch((err) => console.log(err, 'no categories chart found'));
 };
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -6,8 +6,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-import { useDispatch, useSelector } from 'react-redux';
-import { getCategoryChart } from '../Redux/Slices/chartSlice';
+import './Styles/DataCard.css';
 
 ChartJS.register(
   ArcElement,
@@ -15,39 +14,37 @@ ChartJS.register(
   Legend,
 );
 
-export default function Chart() {
-  const chartData = useSelector((store) => store.chart);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getCategoryChart());
-    // console.log(Object.keys(chartData), '000000000000000000000000');
-  }, []);
-
+export default function Chart({ chartData }) {
   const data = {
     labels: Object.keys(chartData),
     datasets: [{
       label: 'expensesList',
       data: Object.values(chartData),
-      backgroundColor: ['black', 'red', 'yellow'],
-      borderColor: ['black', 'red', 'yellow'],
+      backgroundColor: ['black', 'red', 'yellow', 'green', 'blue'],
+      borderColor: ['black', 'red', 'yellow', 'green', 'blue'],
     }],
   };
 
   const options = {
-
+    plugins: {
+      legend: {
+        display: false,
+      },
+      tooltips: {
+        callbacks: {
+          label(tooltipItem) {
+            return tooltipItem.yLabel;
+          },
+        },
+      },
+    },
   };
 
   return (
-    <div>
-      <Doughnut>
-        data =
-        {' '}
-        {data}
-        options =
-        {' '}
-        {options}
-      </Doughnut>
-    </div>
+    <Doughnut
+      className="datacard_chart"
+      data={data}
+      options={options}
+    />
   );
 }

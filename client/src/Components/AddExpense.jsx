@@ -5,15 +5,14 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
 import dayjs from 'dayjs';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { getCategory } from '../Redux/Slices/categorySlice';
 import { addNewExpense } from '../Redux/Slices/expenseSlice';
+import './Styles/AddForm.css';
 
 export default function addExpense() {
   const [exDate, setExDate] = useState(dayjs('2000-01-01'));
   const categories = useSelector((store) => store.category);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCategory());
@@ -25,20 +24,24 @@ export default function addExpense() {
     formData.date = exDate;
     dispatch(addNewExpense(formData));
     window.location.href = '/datacard';
-    // NavLink('/datacard');
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <select name="category_id">
+    <form className="add-form frame" onSubmit={submitHandler}>
+      <select
+        name="category_id"
+        className="add-form_label_input"
+      >
         {categories.map((el) => (<option value={el.id} key={el.id}>{el.title}</option>))}
       </select>
       <input
+        className="add-form_label_input"
         name="title"
         type="text"
         placeholder="Add expense"
       />
       <input
+        className="add-form_label_input"
         name="sum"
         type="number"
         placeholder="Sum"
@@ -47,7 +50,7 @@ export default function addExpense() {
         <DatePicker
           disableFuture
           name="date"
-          label="Дата рождения"
+          label="Date"
           openTo="year"
           views={['year', 'month', 'day']}
           value={exDate}
@@ -59,9 +62,13 @@ export default function addExpense() {
         />
       </LocalizationProvider>
       <textarea
+        className="add-form_label_input"
         name="description"
       />
-      <button type="submit">
+      <button
+        type="submit"
+        className="add-form_button"
+      >
         SUBMIT
       </button>
     </form>

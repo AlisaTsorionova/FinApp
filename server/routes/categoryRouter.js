@@ -19,6 +19,7 @@ router.get('/chart', async (req, res) => {
     const filtCat = allCategories.filter((el) => el.Expenses.length);
     const chartData = {};
     filtCat.forEach((x) => chartData[x.title] = (x.Expenses.map((a) => a.sum)).reduce((a,b)=>a+b));
+    console.log(Object.keys(chartData));
     res.json(chartData);
   } catch (err) {
     console.log(err);

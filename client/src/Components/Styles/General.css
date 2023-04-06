@@ -15,6 +15,9 @@ body {
 	background: linear-gradient(90deg, #1f402a,#4481b3, #B0DAB9);
 	background-size: 700% 10000%;
 	animation: gradient 70s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 @keyframes gradient {
 	0% {
