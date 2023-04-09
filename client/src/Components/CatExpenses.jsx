@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteExpense } from '../Redux/Slices/expenseSlice';
@@ -14,6 +14,10 @@ export default function CatExpenses({ isModal, setModal, currExp }) {
   const clickHandler = (e, id, userId) => {
     dispatch(deleteExpense(id, userId));
   };
+
+  useEffect(() => {
+    console.log(currExp, '++++++++++++++++++++++');
+  }, []);
 
   return (
     <div className={isModal ? 'modal active' : 'modal'} onClick={() => setModal(false)}>

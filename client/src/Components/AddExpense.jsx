@@ -3,14 +3,28 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
-import { TextField } from '@mui/material';
+import { createTheme, TextField, ThemeProvider } from '@mui/material';
 import dayjs from 'dayjs';
+// import red from '@material-ui/core/colors/purple';
+// import white from '@material-ui/core/colors/green';
 import { getCategory } from '../Redux/Slices/categorySlice';
 import { addNewExpense } from '../Redux/Slices/expenseSlice';
 import './Styles/AddForm.css';
 
+const theme = createTheme({
+  palette: {
+    primary: { main: 'rgba(255, 0, 0, 0.712)' },
+    secondary: { main: 'rgba(255, 0, 0, 0.712)' },
+  },
+});
+
 export default function addExpense() {
-  const [exDate, setExDate] = useState(dayjs('2000-01-01'));
+  const date = new Date();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const [exDate, setExDate] = useState(dayjs(`${year}-${month}-${day}`));
   const categories = useSelector((store) => store.category);
   const dispatch = useDispatch();
 
@@ -30,40 +44,48 @@ export default function addExpense() {
     <form className="add-form frame" onSubmit={submitHandler}>
       <select
         name="category_id"
-        className="add-form_label_input"
+        className="add-form_label_input add-form_select"
+        placeholder="category"
+
       >
-        {categories.map((el) => (<option value={el.id} key={el.id}>{el.title}</option>))}
+        <option className="add-form_cat_option add-form_option" value="" disabled selected>Category</option>
+        {categories.map((el) => (<option className="add-form_option" value={el.id} key={el.id}>{el.title}</option>))}
       </select>
       <input
+        required
         className="add-form_label_input"
         name="title"
         type="text"
-        placeholder="Add expense"
+        placeholder="Title"
       />
       <input
+        required
         className="add-form_label_input"
         name="sum"
         type="number"
         placeholder="Sum"
       />
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          disableFuture
-          name="date"
-          label="Date"
-          openTo="year"
-          views={['year', 'month', 'day']}
-          value={exDate}
-          onChange={(newValue) => {
-            setExDate(newValue);
-            console.log(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
+      <ThemeProvider theme={theme}>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DatePicker
+            disableFuture
+            name="date"
+            label="Date"
+            openTo="year"
+            views={['year', 'month', 'day']}
+            value={exDate}
+            onChange={(newValue) => {
+              setExDate(newValue);
+              console.log(newValue);
+            }}
+            renderInput={(params) => <TextField {...params} />}
+          />
+        </LocalizationProvider>
+      </ThemeProvider>
       <textarea
         className="add-form_label_input"
         name="description"
+        // placeholder="description"
       />
       <button
         type="submit"

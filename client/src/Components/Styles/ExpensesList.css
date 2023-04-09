@@ -1,0 +1,73 @@
+.expList{
+  height:fit-content;
+  max-height: 500px;
+  width: 500px;
+  padding: 10px;
+  display: flex;
+  margin: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 10px;
+  border: 3px solid  rgba(255, 0, 0, 0.712);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: monospace;
+
+}
+
+.expList_header{
+  text-transform: uppercase;
+  font-size: 30px;
+  color: #e9eef2be;
+  margin-block: 0px;
+
+}
+
+.expList_list{
+  list-style-type: none;
+  max-height: 400px;
+  width: 400px;
+  overflow-y: scroll;
+  padding-left: 10px;
+}
+
+.expList_button{
+  height: 100%;
+  line-height: 30px;
+  /* width: 100%; */
+  width: 370px;
+  font-family: monospace;
+  background-color: #e9eef2be;
+	border-radius: 20px;
+  color:  rgba(255, 0, 0, 0.712);
+  border: none;
+  margin: 3px 3px;
+
+}
+
+/* .expList_list_item{
+  background-color: #cfe2cfc4;
+
+} */
+
+.expList_button:hover{
+  background-color: rgba(255, 0, 0, 0.712);
+  color: #cfe2cfc4;
+  transition: all .3s;
+
+}
+
+.expList_button_header{
+  text-transform: uppercase;
+  margin-block: 0px;
+  font-size: 15px;
+
+}
+
+.expList_button_sum{
+  /* text-transform: uppercase; */
+  font-size: 13px;
+
+
+}

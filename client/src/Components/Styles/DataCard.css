@@ -5,6 +5,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 20px;
   padding: 10px;
+  border: 3px solid rgba(255, 0, 0, 0.712);
 }
 .datacard_buttons_list{
   list-style-type: none;
@@ -20,25 +21,30 @@
   line-height: 30px;
   width: 100%;
   font-family: monospace;
+  background-color: #e9eef2be;
+	border-radius: 20px;
+  color:  rgba(255, 0, 0, 0.712);
+  border: none;
+  margin-top: 3px;
 }
 
-/* .datacard_chart{
-   width: 100px;
-  height: 100px;
-  /* margin: 10px; 
-} */
+.datacard_buttons_list_item:hover{
+  background-color: rgba(255, 0, 0, 0.712);
+  color: #cfe2cfc4;
+  transition: all .3s;
+}
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 50px rgb(158, 103, 103); 
+  box-shadow: inset 0 0 50px rgba(255, 255, 255, 0); 
   border-radius: 10px;
 }
  
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background:rgba(255, 0, 0, 0.712); 
   border-radius: 10px;
 }
 
