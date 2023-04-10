@@ -10,10 +10,9 @@ const expenseSlice = createSlice({
   },
 });
 
-export const { setExpenses, addExpense } = expenseSlice.actions; // ??
+export const { setExpenses, addExpense } = expenseSlice.actions;
 
 export const getExpenses = () => (dispatch) => {
-  // console.log('llllllllllll');
   axios.get('/expenses/list')
     .then((res) => {
       console.log(res.data);
@@ -30,7 +29,6 @@ export const addNewExpense = (expenseData) => (dispatch) => {
 
 export const deleteExpense = (id, userId) => (dispatch) => {
   axios.post(`/expenses/delete/${id}`, { userId });
-  // .then(()=>)
 };
 
 export default expenseSlice.reducer;

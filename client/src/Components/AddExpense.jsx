@@ -1,12 +1,9 @@
-/* eslint-disable max-len */
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { createTheme, TextField, ThemeProvider } from '@mui/material';
 import dayjs from 'dayjs';
-// import red from '@material-ui/core/colors/purple';
-// import white from '@material-ui/core/colors/green';
 import { getCategory } from '../Redux/Slices/categorySlice';
 import { addNewExpense } from '../Redux/Slices/expenseSlice';
 import './Styles/AddForm.css';
@@ -85,7 +82,6 @@ export default function addExpense() {
       <textarea
         className="add-form_label_input"
         name="description"
-        // placeholder="description"
       />
       <button
         type="submit"

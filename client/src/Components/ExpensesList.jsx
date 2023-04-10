@@ -16,10 +16,8 @@ export default function expensesList() {
   useEffect(() => {
     dispatch(getExpenses());
     if (isModal === false && !expenses.filter((el) => el?.Category.title === category).length) navigate('/datacard'); // *
-    console.log(expenses, '3434234234');
   }, [isModal]);
 
-  // сюда компонент диаграммы, передать фильтрованное значение
   const clickHandler = (expense) => {
     setModal(true);
     setCurrExp(expense);

@@ -22,7 +22,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      title: 'Medical/Healthcare',
+      title: 'Healthcare',
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -52,7 +52,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      title: 'Gifts/Donations',
+      title: 'Gifts',
       createdAt: new Date(),
       updatedAt: new Date(),
     }], {});

@@ -17,10 +17,8 @@ export default function Login() {
 
   useEffect(() => {
     if (Object.keys(user).length !== 0) {
-      console.log(user);
       navigate('/');
     }
-    console.log(user, '))))))))))))))))');
   }, [user]);
 
   return (
@@ -28,11 +26,11 @@ export default function Login() {
       <h2 className="form-auth_header">Login</h2>
       <label htmlFor="email" className="form-auth_label">
         Email
-        <input className="form-auth_label_input" type="text" name="email" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="email" placeholder="" />
       </label>
       <label htmlFor="password" className="form-auth_label">
         Password
-        <input className="form-auth_label_input" type="text" name="password" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="password" placeholder="" />
       </label>
       <button type="submit" className="form-auth_button">Sign in</button>
     </form>

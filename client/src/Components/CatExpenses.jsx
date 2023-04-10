@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { deleteExpense } from '../Redux/Slices/expenseSlice';
 import './Styles/CatExpenses.css';
 import './Styles/General.css';
@@ -15,19 +14,20 @@ export default function CatExpenses({ isModal, setModal, currExp }) {
     dispatch(deleteExpense(id, userId));
   };
 
-  useEffect(() => {
-    console.log(currExp, '++++++++++++++++++++++');
-  }, []);
-
   return (
     <div className={isModal ? 'modal active' : 'modal'} onClick={() => setModal(false)}>
       <div className={isModal ? 'modal_content active' : 'modal_content'} onClick={(e) => e.stopPropagation}>
-        {currExp.title}
-        {currExp.sum}
-        {' '}
-        <br />
-        {currExp.month}
-        <button onClick={(e) => clickHandler(e, currExp.id, currExp.user_id)} type="button">REMOVE</button>
+        <h4 className="modal_title">{currExp.title}</h4>
+        <p className="modal_date">{`${currExp.month} ${currExp.day}, ${currExp.year}`}</p>
+        <p className="modal_sum">{`${currExp.sum} rub`}</p>
+        {currExp.description && (<span className="modal_desc">{currExp.description}</span>)}
+        <button
+          className="modal_button"
+          onClick={(e) => clickHandler(e, currExp.id, currExp.user_id)}
+          type="button"
+        >
+          REMOVE
+        </button>
       </div>
     </div>
   );

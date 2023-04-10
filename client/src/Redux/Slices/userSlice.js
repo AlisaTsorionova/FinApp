@@ -20,7 +20,6 @@ export const regUser = (userData) => (dispatch) => {
 export const logUser = (userData) => (dispatch) => {
   axios.post('/user/login', userData)
     .then((res) => {
-      console.log(res.data, ']]]]]]]]]]]]]]');
       dispatch(setUser(res.data));
     })
     .catch(console.log('no login'));

@@ -16,34 +16,29 @@ export default function NavBar() {
     <nav>
       {Object.keys(user).length ? (
         <>
-          <NavLink className="navlink" to="/datacard">
-            <button className="navlink-button" type="button">DATACARD</button>
+          <NavLink className="navlink-button" to="/datacard">
+            DATACARD
           </NavLink>
-          <NavLink className="navlink" to="/add">
-            <button className="navlink-button" type="button">ADD</button>
+          <NavLink className="navlink-button" to="/add">
+            ADD
           </NavLink>
-          <NavLink className="navlink" to="/">
-            <button
-              onClick={() => {
-                dispatch(logoutUser());
-                // dispatch(setUser({}));
-                // console.log(user, '******************');
-              }}
-              className="navlink-button"
-              type="button"
-            >
-              LOGOUT
-
-            </button>
+          <NavLink
+            className="navlink-button"
+            to="/"
+            onClick={() => {
+              dispatch(logoutUser());
+            }}
+          >
+            LOGOUT
           </NavLink>
         </>
       ) : (
         <>
-          <NavLink className="navlink" to="/registration">
-            <button className="navlink-button" type="button">SIGNUP</button>
+          <NavLink className="navlink-button" to="/registration">
+            SIGN UP
           </NavLink>
-          <NavLink className="navlink" to="/login">
-            <button className="navlink-button" type="button">SIGNIN</button>
+          <NavLink className="navlink-button" to="/login">
+            SIGN IN
           </NavLink>
         </>
       )}

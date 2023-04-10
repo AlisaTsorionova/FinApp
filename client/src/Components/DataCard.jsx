@@ -15,13 +15,25 @@ export default function dataCard() {
 
   useEffect(() => {
     dispatch(getCategoryChart());
+    if (!Object.entries(chartData).length) navigate('/add');
   }, []);
 
   return (
     <div className="datacard">
       <Chart chartData={chartData} />
       <ul className="datacard_buttons_list">
-        {Object.keys(chartDataArr).map((el) => <li><button className="datacard_buttons_list_item" onClick={() => navigate(`/list/${el}`)} type="button" key={el}>{el.toUpperCase()}</button></li>)}
+        {Object.keys(chartDataArr).map((el) => (
+          <li key={el.id}>
+            <button
+              className="datacard_buttons_list_item"
+              onClick={() => navigate(`/list/${el}`)}
+              type="button"
+              key={el}
+            >
+              {el.toUpperCase()}
+            </button>
+          </li>
+        ))}
       </ul>
     </div>
   );

@@ -4,10 +4,6 @@ import { regUser } from '../Redux/Slices/userSlice';
 import './Styles/RegisterLogin.css';
 
 export default function Registration() {
-  // const [registerData, setRegisterData] = useState({
-  //   fullname: '', email: '', password: '', confirmpassword: '',
-  // });
-
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -19,19 +15,19 @@ export default function Registration() {
       <h2 className="form-auth_header">REGISTRATION</h2>
       <label htmlFor="fullname" className="form-auth_label">
         Full name
-        <input className="form-auth_label_input" type="text" name="fullname" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="fullname" placeholder="" />
       </label>
       <label htmlFor="email" className="form-auth_label">
         Email
-        <input className="form-auth_label_input" type="text" name="email" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="email" placeholder="" />
       </label>
       <label htmlFor="password" className="form-auth_label">
         Password
-        <input className="form-auth_label_input" type="text" name="password" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="password" placeholder="" />
       </label>
       <label htmlFor="confirmpassword" className="form-auth_label">
         Confirm password
-        <input className="form-auth_label_input" type="text" name="confirmpassword" placeholder="" />
+        <input required className="form-auth_label_input" type="text" name="confirmpassword" placeholder="" />
       </label>
       <button type="submit" className="form-auth_button">Sign up</button>
     </form>
