@@ -29,7 +29,7 @@ export default function expensesList() {
         <h3 className="expList_header">{category}</h3>
         <ul className="expList_list">
           {expenses.filter((el) => el?.Category.title === category).map((el) => (
-            <li className="expList_list_item">
+            <li key={el.id} className="expList_list_item">
               <button className="expList_button" onClick={() => clickHandler(el)} key={el.id} type="button">
                 <h5 className="expList_button_header">{el?.title || 'no title'}</h5>
                 <div className="expList_button_sum">{`${el.sum} rub` || 'no sum'}</div>

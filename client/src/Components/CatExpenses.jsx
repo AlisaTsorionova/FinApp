@@ -14,13 +14,17 @@ export default function CatExpenses({ isModal, setModal, currExp }) {
     dispatch(deleteExpense(id, userId));
   };
 
+  useEffect(() => {
+    console.log(currExp.description, '0000000000');
+  });
+
   return (
     <div className={isModal ? 'modal active' : 'modal'} onClick={() => setModal(false)}>
       <div className={isModal ? 'modal_content active' : 'modal_content'} onClick={(e) => e.stopPropagation}>
         <h4 className="modal_title">{currExp.title}</h4>
         <p className="modal_date">{`${currExp.month} ${currExp.day}, ${currExp.year}`}</p>
         <p className="modal_sum">{`${currExp.sum} rub`}</p>
-        {currExp.description && (<span className="modal_desc">{currExp.description}</span>)}
+        {currExp.description && (<p className="modal_desc">{currExp.description}</p>)}
         <button
           className="modal_button"
           onClick={(e) => clickHandler(e, currExp.id, currExp.user_id)}

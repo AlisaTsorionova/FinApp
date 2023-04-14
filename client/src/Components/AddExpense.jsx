@@ -4,6 +4,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers';
 import { createTheme, TextField, ThemeProvider } from '@mui/material';
 import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
 import { getCategory } from '../Redux/Slices/categorySlice';
 import { addNewExpense } from '../Redux/Slices/expenseSlice';
 import './Styles/AddForm.css';
@@ -24,6 +25,7 @@ export default function addExpense() {
   const [exDate, setExDate] = useState(dayjs(`${year}-${month}-${day}`));
   const categories = useSelector((store) => store.category);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCategory());
@@ -34,7 +36,9 @@ export default function addExpense() {
     const formData = Object.fromEntries(new FormData(e.target));
     formData.date = exDate;
     dispatch(addNewExpense(formData));
-    window.location.href = '/datacard';
+    // window.location.href = '/datacard';
+    navigate('/datacard');
+    console.log(exDate, '444444444444444444444');
   };
 
   return (
